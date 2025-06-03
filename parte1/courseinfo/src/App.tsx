@@ -20,18 +20,26 @@ const Part = (props: PartProps) => {
 };
 
 interface ContentProps {
-  parts: {
-    part: string;
+  part1: {
+    name: string;
     exercise: number;
-  }[];
+  };
+  part2: {
+    name: string;
+    exercise: number;
+  };
+  part3: {
+    name: string;
+    exercise: number;
+  };
 }
 
 const Content = (props: ContentProps) => {
   return (
     <div>
-      <Part part={props.parts[0].part} exercise={props.parts[0].exercise} />
-      <Part part={props.parts[1].part} exercise={props.parts[1].exercise} />
-      <Part part={props.parts[2].part} exercise={props.parts[2].exercise} />
+      <Part part={props.part1.name} exercise={props.part1.exercise} />
+      <Part part={props.part2.name} exercise={props.part2.exercise} />
+      <Part part={props.part3.name} exercise={props.part3.exercise} />
     </div>
   );
 };
@@ -46,20 +54,24 @@ const Total = (props: TotalProps) => {
 
 const App = () => {
   const course = "Half Stack application development";
-
-  const parts = [
-    { part: "Fundamentals of React", exercise: 10 },
-    { part: "Using props to pass data", exercise: 7 },
-    { part: "State of a component", exercise: 14 },
-  ];
+  const part1 = {
+    name: "Fundamentals of React",
+    exercise: 10,
+  };
+  const part2 = {
+    name: "Using props to pass data",
+    exercise: 7,
+  };
+  const part3 = {
+    name: "State of a component",
+    exercise: 14,
+  };
 
   return (
     <>
       <Header course={course} />
-      <Content parts={parts} />
-      <Total
-        total={parts[0].exercise + parts[1].exercise + parts[2].exercise}
-      />
+      <Content part1={part1} part2={part2} part3={part3} />
+      <Total total={part1.exercise + part2.exercise + part3.exercise} />
     </>
   );
 };
