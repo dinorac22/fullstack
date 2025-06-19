@@ -4,12 +4,7 @@ const Statistics = (props) => {
   if (props.good + props.neutral + props.bad === 0) {
     return (
       <div>
-        <p> good {props.good}</p>
-        <p>neutral {props.neutral}</p>
-        <p>bad {props.bad}</p>
-        <p>all {props.good + props.neutral + props.bad}</p>
-        <p>average 0</p>
-        <p>positive 0 %</p>
+        <p> No feedback given</p>
       </div>
     );
   } else {
