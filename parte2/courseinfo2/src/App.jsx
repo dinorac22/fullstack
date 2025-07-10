@@ -21,7 +21,13 @@ const Content = (props) => {
 };
 
 const Total = (props) => {
-  const total = props.parts.reduce((sum, part) => sum + part.exercise, 0);
+  const total = props.parts.reduce((sum, part) => {
+    console.log("what is happening:", sum, part);
+    const newSum = sum + part.exercise;
+    console.log("newSum:", newSum);
+    console.log("------------------------");
+    return newSum;
+  }, 0);
   return (
     <p>
       <strong>total of {total} exercises</strong>
